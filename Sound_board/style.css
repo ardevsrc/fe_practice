@@ -18,10 +18,10 @@ body {
 }
 
 .btn {
-  background-color: rgb(223, 226, 42);
+  background-color: rgb(128, 129, 51);
   border-radius: 5px;
   border: none;
-  color: #fff;
+  color: rgb(3, 24, 48);
   margin: 1rem;
   padding: 1.5rem 3rem;
   font-size: 1.2rem;

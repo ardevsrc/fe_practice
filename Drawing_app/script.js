@@ -57,17 +57,17 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 function updateSizeOnScreen() {
-    sizeEL.innerText = size;;
+    sizeEL.innerText = size;
 }
 
 increaseBtn.addEventListener('click', () => {
     size += 5;;
 
     if(size > 50) {
-        size = 50;;
+        size = 50;
     }
 
-    updateSizeOnScreen();;
+    updateSizeOnScreen();
 })
 
 decreaseBtn.addEventListener('click', () => {
@@ -77,7 +77,7 @@ decreaseBtn.addEventListener('click', () => {
         size = 5;;
     }
 
-    updateSizeOnScreen();;
+    updateSizeOnScreen();
 })
 
 colorEl.addEventListener('change', (e) => color = e.target.value);

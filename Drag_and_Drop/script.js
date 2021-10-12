@@ -11,13 +11,6 @@ empties.forEach((empty) => {
   empty.addEventListener('drop', dragDrop);
 });
 
-// for(const empty of empties) {
-//     empty.addEventListener('dragover', dragOver)
-//     empty.addEventListener('dragenter', dragEnter)
-//     empty.addEventListener('dragleave', dragLeave)
-//     empty.addEventListener('drop', dragDrop)
-// }
-
 
 function dragStart() {
   this.className += ' hold'; 

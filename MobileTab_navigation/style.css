@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgba(155, 89, 182, 0.7);
+  background-color: rgba(3, 147, 243, 0.7);
   font-family: 'Open Sans', sans-serif;
   display: flex;
   align-items: center;
@@ -70,5 +70,5 @@ nav ul li p {
 
 nav ul li:hover,
 nav ul li.active {
-  color: #8e44ad;
+  color: #0260b8;
 }

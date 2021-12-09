@@ -32,7 +32,7 @@ let playerScoreNumber = 0;
 let computerScoreNumber = 0;
 let computerChoice = '';
 
-// Reset all 'selected' icons, remove confetti
+
 function resetSelected() {
   allGameIcons.forEach((icon) => {
     icon.classList.remove('selected');
@@ -41,7 +41,7 @@ function resetSelected() {
   removeConfetti();
 }
 
-// Reset score & playerChoice/computerChoice
+
 function resetAll() {
   playerScoreNumber = 0;
   computerScoreNumber = 0;
@@ -54,7 +54,7 @@ function resetAll() {
 }
 window.resetAll = resetAll;
 
-// Random computer choice
+
 function computerRandomChoice() {
   const computerChoiceNumber = Math.random();
   if (computerChoiceNumber < 0.2) {
@@ -70,7 +70,7 @@ function computerRandomChoice() {
   }
 }
 
-// Add 'selected' styling & computerChoice
+
 function displayComputerChoice() {
   switch (computerChoice) {
     case 'rock':
@@ -98,7 +98,7 @@ function displayComputerChoice() {
   }
 }
 
-// Check result, increase scores, update resultText
+
 function updateScore(playerChoice) {
   if (playerChoice === computerChoice) {
     resultText.textContent = "It's a tie.";
@@ -117,7 +117,7 @@ function updateScore(playerChoice) {
   }
 }
 
-// Call functions to process turn
+
 function checkResult(playerChoice) {
   resetSelected();
   computerRandomChoice();
@@ -125,7 +125,6 @@ function checkResult(playerChoice) {
   updateScore(playerChoice);
 }
 
-// Passing player selection value and styling icons
 function select(playerChoice) {
   checkResult(playerChoice);
   // Add 'selected' styling & playerChoice
@@ -156,5 +155,5 @@ function select(playerChoice) {
 }
 window.select = select;
 
-// On startup, set initial values
+
 resetAll();

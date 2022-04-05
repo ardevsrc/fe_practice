@@ -46,17 +46,20 @@ function App() {
   }, []);
 
   const handleValue = (e) => {
-    console.log(e.target.value);
+    if (e.target.classList.contains('icon')) {
+      const newValue = e.target.dataset.label;
+      setTitle(newValue);
+      setValue(person[newValue]);
+    }
   }
+
   return (
     <main>
-      <div className="block bcg-black">
-        
-      </div>
+      <div className="block bcg-black"></div>
       <div className="block">
           <div className="container">
             <img src={(person && person.image) || defaultImage} alt="random user" className="user-img"/>
-            <p className="user-title">my {title} isPlaying</p>
+            <p className="user-title">my {title} is</p>
             <p className="user-value">{value}</p>
             <div className="value-list">
               <button 

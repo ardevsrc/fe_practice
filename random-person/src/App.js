@@ -17,6 +17,34 @@ function App() {
   const [title, setTitle] = useState('name');
   const [value, setValue] = useState('random person');
 
+  const getPerson = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    const person = data.results[0];
+    const {phone, email} = person;
+    const {large: image} = person.picture;
+    const {login:{password}} = person;
+    const {first, last} = person.name;
+    const {dob:{age}} = person;
+    const {street:{number, name}} = person.location;
+    const newPerson = {
+      image, 
+      phone, 
+      email, 
+      age, 
+      street:`${number} ${name}`,
+      name: `${first} ${last}`
+    }
+    setPerson(newPerson);
+    setLoading(false);
+    setTitle('name');
+    setValue(newPerson.name);
+  }
+
+  useEffect(() => {
+    getPerson();
+  }, []);
+
   const handleValue = (e) => {
     console.log(e.target.value);
   }
@@ -76,7 +104,8 @@ function App() {
             </div>
             <button 
               className="btn" 
-              type="button" 
+              type="button"
+              onClick={getPerson} 
             >
               {loading ? 'loading...': 'random user'}
             </button>

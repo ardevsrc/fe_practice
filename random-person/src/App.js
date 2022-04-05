@@ -1,24 +1,88 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import {
+  FaEnvelopeOpen,
+  FaUser,
+  FaCalendarTimes,
+  FaMap,
+  FaPhone,
+  FaLock,
+} from 'react-icons/fa';
+
+const url = 'https://randomuser.me/api';
+const defaultImage = 'http://randomuser.me/api/portraits/men/75.jpg';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [person, setPerson] = useState(null);
+  const [title, setTitle] = useState('name');
+  const [value, setValue] = useState('random person');
+
+  const handleValue = (e) => {
+    console.log(e.target.value);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="block bcg-black">
+        
+      </div>
+      <div className="block">
+          <div className="container">
+            <img src={(person && person.image) || defaultImage} alt="random user" className="user-img"/>
+            <p className="user-title">my {title} isPlaying</p>
+            <p className="user-value">{value}</p>
+            <div className="value-list">
+              <button 
+                className="icon" 
+                data-label="name" 
+                onMouseOver={handleValue}
+              >
+                <FaUser />
+              </button>
+              <button 
+                className="icon" 
+                data-label="email" 
+                onMouseOver={handleValue}
+              >
+                <FaEnvelopeOpen />
+              </button>
+              <button 
+                className="icon" 
+                data-label="age" 
+                onMouseOver={handleValue}
+              >
+                <FaCalendarTimes/>
+              </button>
+              <button 
+                className="icon" 
+                data-label="street" 
+                onMouseOver={handleValue}
+              >
+                <FaMap />
+              </button>
+              <button 
+                className="icon" 
+                data-label="phone" 
+                onMouseOver={handleValue}
+              >
+                <FaPhone />
+              </button>
+              <button 
+                className="icon" 
+                data-label="password" 
+                onMouseOver={handleValue}
+              >
+                <FaLock />
+              </button>
+            </div>
+            <button 
+              className="btn" 
+              type="button" 
+            >
+              {loading ? 'loading...': 'random user'}
+            </button>
+          </div>
+        </div>
+    </main>
   );
 }
 
